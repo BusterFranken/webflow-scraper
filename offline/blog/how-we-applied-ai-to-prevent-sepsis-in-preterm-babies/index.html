@@ -1,0 +1,444 @@
+<html data-wf-domain="www.fruitpunch.ai" data-wf-page="661d09a4061bc8f0cc423c89" data-wf-site="623d7d246e8213dbe6aace84" data-wf-collection="661d09a4061bc8f0cc423c7d" data-wf-item-slug="how-we-applied-ai-to-prevent-sepsis-in-preterm-babies" class="w-mod-js wf-atkinsonhyperlegible-n4-active wf-robotomono-n6-active wf-robotomono-n4-active wf-robotomono-n7-active wf-atkinsonhyperlegible-n7-active wf-inter-n7-active wf-inter-n2-active wf-inter-n5-active wf-inter-n3-active wf-inter-n4-active wf-inter-n1-active wf-inter-n9-active wf-inter-n8-active wf-inter-n6-active wf-active w-mod-ix"><head><style>.wf-force-outline-none[tabindex="-1"]:focus{outline:none;}</style><meta charset="utf-8"><title>How we applied AI to prevent sepsis in preterm babies</title><meta content="A case study on using XGBoost for time series forecasting to predict the onset of sepsis in preterm infants within a 12-hour prediction horizon.Sep 06, 2022" name="description"><meta content="How we applied AI to prevent sepsis in preterm babies" property="og:title"><meta content="A case study on using XGBoost for time series forecasting to predict the onset of sepsis in preterm infants within a 12-hour prediction horizon.Sep 06, 2022" property="og:description"><meta content="https://cdn.prod.website-files.com/62604c2173fafef5f182b55a/6641cf46dd58a961950cb268_header.png" property="og:image"><meta content="How we applied AI to prevent sepsis in preterm babies" property="twitter:title"><meta content="A case study on using XGBoost for time series forecasting to predict the onset of sepsis in preterm infants within a 12-hour prediction horizon.Sep 06, 2022" property="twitter:description"><meta content="https://cdn.prod.website-files.com/62604c2173fafef5f182b55a/6641cf46dd58a961950cb268_header.png" property="twitter:image"><meta property="og:type" content="website"><meta content="summary_large_image" name="twitter:card"><meta content="width=device-width, initial-scale=1" name="viewport"><meta content="3W8ATyTMYMESrts8sQd9lyAvrN8Svo_I9Ks_ZE2td3I" name="google-site-verification"><style type="text/css" data-tippy-stylesheet="">.tippy-iOS{cursor:pointer!important;-webkit-tap-highlight-color:transparent}.tippy-popper{transition-timing-function:cubic-bezier(.165,.84,.44,1);max-width:calc(100% - 8px);pointer-events:none;outline:0}.tippy-popper[x-placement^=top] .tippy-backdrop{border-radius:40% 40% 0 0}.tippy-popper[x-placement^=top] .tippy-roundarrow{bottom:-7px;bottom:-6.5px;-webkit-transform-origin:50% 0;transform-origin:50% 0;margin:0 3px}.tippy-popper[x-placement^=top] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(180deg);transform:rotate(180deg)}.tippy-popper[x-placement^=top] .tippy-arrow{border-top:8px solid #333;border-right:8px solid transparent;border-left:8px solid transparent;bottom:-7px;margin:0 3px;-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=top] .tippy-backdrop{-webkit-transform-origin:0 25%;transform-origin:0 25%}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-55%);transform:scale(1) translate(-50%,-55%)}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-50%,-45%);transform:scale(.2) translate(-50%,-45%);opacity:0}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(-20px);transform:translateY(-20px)}.tippy-popper[x-placement^=top] [data-animation=perspective]{-webkit-transform-origin:bottom;transform-origin:bottom}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateY(-10px);transform:perspective(700px) translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateX(60deg);transform:perspective(700px) rotateX(60deg)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=top] [data-animation=scale]{-webkit-transform-origin:bottom;transform-origin:bottom}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px) scale(.5);transform:translateY(-10px) scale(.5)}.tippy-popper[x-placement^=bottom] .tippy-backdrop{border-radius:0 0 30% 30%}.tippy-popper[x-placement^=bottom] .tippy-roundarrow{top:-7px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%;margin:0 3px}.tippy-popper[x-placement^=bottom] .tippy-roundarrow svg{position:absolute;left:0}.tippy-popper[x-placement^=bottom] .tippy-arrow{border-bottom:8px solid #333;border-right:8px solid transparent;border-left:8px solid transparent;top:-7px;margin:0 3px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%}.tippy-popper[x-placement^=bottom] .tippy-backdrop{-webkit-transform-origin:0 -50%;transform-origin:0 -50%}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-45%);transform:scale(1) translate(-50%,-45%)}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-50%);transform:scale(.2) translate(-50%);opacity:0}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(20px);transform:translateY(20px)}.tippy-popper[x-placement^=bottom] [data-animation=perspective]{-webkit-transform-origin:top;transform-origin:top}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateY(10px);transform:perspective(700px) translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateX(-60deg);transform:perspective(700px) rotateX(-60deg)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=bottom] [data-animation=scale]{-webkit-transform-origin:top;transform-origin:top}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px) scale(.5);transform:translateY(10px) scale(.5)}.tippy-popper[x-placement^=left] .tippy-backdrop{border-radius:50% 0 0 50%}.tippy-popper[x-placement^=left] .tippy-roundarrow{right:-12px;-webkit-transform-origin:33.33333333% 50%;transform-origin:33.33333333% 50%;margin:3px 0}.tippy-popper[x-placement^=left] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(90deg);transform:rotate(90deg)}.tippy-popper[x-placement^=left] .tippy-arrow{border-left:8px solid #333;border-top:8px solid transparent;border-bottom:8px solid transparent;right:-7px;margin:3px 0;-webkit-transform-origin:0 50%;transform-origin:0 50%}.tippy-popper[x-placement^=left] .tippy-backdrop{-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-50%);transform:scale(1) translate(-50%,-50%)}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-75%,-50%);transform:scale(.2) translate(-75%,-50%);opacity:0}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(-20px);transform:translateX(-20px)}.tippy-popper[x-placement^=left] [data-animation=perspective]{-webkit-transform-origin:right;transform-origin:right}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateX(-10px);transform:perspective(700px) translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateY(-60deg);transform:perspective(700px) rotateY(-60deg)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=left] [data-animation=scale]{-webkit-transform-origin:right;transform-origin:right}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px) scale(.5);transform:translateX(-10px) scale(.5)}.tippy-popper[x-placement^=right] .tippy-backdrop{border-radius:0 50% 50% 0}.tippy-popper[x-placement^=right] .tippy-roundarrow{left:-12px;-webkit-transform-origin:66.66666666% 50%;transform-origin:66.66666666% 50%;margin:3px 0}.tippy-popper[x-placement^=right] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.tippy-popper[x-placement^=right] .tippy-arrow{border-right:8px solid #333;border-top:8px solid transparent;border-bottom:8px solid transparent;left:-7px;margin:3px 0;-webkit-transform-origin:100% 50%;transform-origin:100% 50%}.tippy-popper[x-placement^=right] .tippy-backdrop{-webkit-transform-origin:-50% 0;transform-origin:-50% 0}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-50%);transform:scale(1) translate(-50%,-50%)}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-25%,-50%);transform:scale(.2) translate(-25%,-50%);opacity:0}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(20px);transform:translateX(20px)}.tippy-popper[x-placement^=right] [data-animation=perspective]{-webkit-transform-origin:left;transform-origin:left}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateX(10px);transform:perspective(700px) translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateY(60deg);transform:perspective(700px) rotateY(60deg)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=right] [data-animation=scale]{-webkit-transform-origin:left;transform-origin:left}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px) scale(.5);transform:translateX(10px) scale(.5)}.tippy-tooltip{position:relative;color:#fff;border-radius:.25rem;font-size:.875rem;padding:.3125rem .5625rem;line-height:1.4;text-align:center;background-color:#333}.tippy-tooltip[data-size=small]{padding:.1875rem .375rem;font-size:.75rem}.tippy-tooltip[data-size=large]{padding:.375rem .75rem;font-size:1rem}.tippy-tooltip[data-animatefill]{overflow:hidden;background-color:initial}.tippy-tooltip[data-interactive],.tippy-tooltip[data-interactive] .tippy-roundarrow path{pointer-events:auto}.tippy-tooltip[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.54,1.5,.38,1.11)}.tippy-tooltip[data-inertia][data-state=hidden]{transition-timing-function:ease}.tippy-arrow,.tippy-roundarrow{position:absolute;width:0;height:0}.tippy-roundarrow{width:18px;height:7px;fill:#333;pointer-events:none}.tippy-backdrop{position:absolute;background-color:#333;border-radius:50%;width:calc(110% + 2rem);left:50%;top:50%;z-index:-1;transition:all cubic-bezier(.46,.1,.52,.98);-webkit-backface-visibility:hidden;backface-visibility:hidden}.tippy-backdrop:after{content:"";float:left;padding-top:100%}.tippy-backdrop+.tippy-content{transition-property:opacity;will-change:opacity}.tippy-backdrop+.tippy-content[data-state=hidden]{opacity:0}</style><link href="../../_assets/623d7d246e8213dbe6aace84_css_fruitpunch-ai.webflow.e858c30b5.css.css" rel="stylesheet" type="text/css"><link href="https://fonts.googleapis.com" rel="preconnect"><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"><!-- Tracking script removed for offline --><script type="text/javascript" charset="utf-8" src="../../_assets/js_signup-forms_popup_unique-methods_38d3020ee67bdafdc3231e2272e1fa0689108cda_popup.js.js"></script><!-- Tracking script removed for offline --><script type="text/javascript" async="" src="https://s3-us-west-2.amazonaws.com/b2bjsstore/b/4O7Z0HM2DWNX/4O7Z0HM2DWNX.js.gz"></script><script async="" src="../../_assets/mcjs-connected_js_users_274b78179f279b8ff0a6f8164_1de32b2c861555e2768ba71e2.js.js"></script><!-- Tracking script removed for offline --><!-- Tracking script removed for offline --><script src="../../_assets/ajax_libs_webfont_1.6.26_webfont.js.js" type="text/javascript"></script><link rel="stylesheet" href="../../_assets/css.html.css" media="all"><script type="text/javascript">WebFont.load({  google: {    families: ["Atkinson Hyperlegible:regular,700","Roboto Mono:regular,600,700","Inter:100,200,300,regular,500,600,700,800,900"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="../../_assets/623d7d246e8213dbe6aace84_62460f7d0eb74f5a342f656e_32x32.svg.svg" rel="shortcut icon" type="image/x-icon"><link href="../../_assets/623d7d246e8213dbe6aace84_62460f835d0f30b3e1e8e5fb_256x256.svg.svg" rel="apple-touch-icon"><!-- Tracking script removed for offline --><!-- Tracking script removed for offline --><!-- Tracking script removed for offline -->
+
+
+
+<!--Tooltip Styling-->
+<link rel="stylesheet" href="../../_assets/tippy.js_4_themes_light-border.css.css">
+<style>
+.blog-post_image-height {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0)
+}
+</style>
+<!-- Google tag (gtag.js) -->
+<!-- Tracking script removed for offline -->
+<!-- Tracking script removed for offline -->
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PMKPDFGL');</script>
+<!-- End Google Tag Manager -->
+
+
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/274b78179f279b8ff0a6f8164/1de32b2c861555e2768ba71e2.js");</script>
+
+<script>!function () {var reb2b = window.reb2b = window.reb2b || [];if (reb2b.invoked) return;reb2b.invoked = true;reb2b.methods = ["identify", "collect"];reb2b.factory = function (method) {return function () {var args = Array.prototype.slice.call(arguments);args.unshift(method);reb2b.push(args);return reb2b;};};for (var i = 0; i < reb2b.methods.length; i++) {var key = reb2b.methods[i];reb2b[key] = reb2b.factory(key);}reb2b.load = function (key) {var script = document.createElement("script");script.type = "text/javascript";script.async = true;script.src = "https://s3-us-west-2.amazonaws.com/b2bjsstore/b/" + key + "/4O7Z0HM2DWNX.js.gz";var first = document.getElementsByTagName("script")[0];first.parentNode.insertBefore(script, first);};reb2b.SNIPPET_VERSION = "1.0.1";reb2b.load("4O7Z0HM2DWNX");}();</script><script>
+const canonicalUrl = "https://app.fruitpunch.ai/article/2022/09/06/how-we-applied-ai-to-prevent-sepsis-in-preterm-bab";
+if (canonicalUrl != "") {
+	var canonicalEl = document.createElement("link");
+	canonicalEl.rel = "canonical";
+	canonicalEl.href = canonicalUrl;
+	document.head.appendChild(canonicalEl);
+}
+</script><link rel="canonical" href="https://app.fruitpunch.ai/article/2022/09/06/how-we-applied-ai-to-prevent-sepsis-in-preterm-bab">
+
+<!-- [Attributes by Finsweet] CMS PrevNext -->
+<script async="" src="../../_assets/npm__finsweet_attributes-cmsprevnext_1_cmsprevnext.js.js"></script>
+
+<!-- [Attributes by Finsweet] CMS Nest -->
+<script async="" src="../../_assets/npm__finsweet_attributes-cmsnest_1_cmsnest.js.js"></script>
+<link rel="stylesheet" type="text/css" href="../../_assets/css_signup-forms_popup_38d3020ee67bdafdc3231e2272e1fa0689108cda_modal.css.css" media="all"><style type="text/css" id=""></style><style type="text/css">#mc_embed_signup input.mce_inline_error { border-color:#6B0505; } #mc_embed_signup div.mce_inline_error { margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff; }</style>
+<script>
+(function() {
+  // Intercept fetch calls
+  const originalFetch = window.fetch;
+  window.fetch = function(...args) {
+    const url = args[0];
+    
+    // Check if this is a Webflow API call
+    if (typeof url === 'string' && (url.includes('api.webflow.com') || url.includes('webflow.com/api'))) {
+      // Try to load from cache
+      const cacheKey = btoa(url).replace(/[^a-zA-Z0-9]/g, '_').substring(0, 100);
+      const apiPath = '../_api_data/' + cacheKey + '.json';
+      
+      return fetch(apiPath)
+        .then(response => response.json())
+        .then(data => {
+          return new Response(data.response.body, {
+            status: data.response.status,
+            statusText: data.response.statusText,
+            headers: data.response.headers
+          });
+        })
+        .catch(() => {
+          return originalFetch.apply(this, args);
+        });
+    }
+    
+    return originalFetch.apply(this, args);
+  };
+  
+  // Intercept XMLHttpRequest
+  const originalXHROpen = XMLHttpRequest.prototype.open;
+  const originalXHRSend = XMLHttpRequest.prototype.send;
+  
+  XMLHttpRequest.prototype.open = function(method, url, ...rest) {
+    this._url = url;
+    return originalXHROpen.apply(this, [method, url, ...rest]);
+  };
+  
+  XMLHttpRequest.prototype.send = function(...args) {
+    if (this._url && (this._url.includes('api.webflow.com') || this._url.includes('webflow.com/api'))) {
+      const cacheKey = btoa(this._url).replace(/[^a-zA-Z0-9]/g, '_').substring(0, 100);
+      const apiPath = '../_api_data/' + cacheKey + '.json';
+      
+      fetch(apiPath)
+        .then(response => response.json())
+        .then(data => {
+          Object.defineProperty(this, 'status', { value: data.response.status, writable: false });
+          Object.defineProperty(this, 'statusText', { value: data.response.statusText, writable: false });
+          Object.defineProperty(this, 'responseText', { value: data.response.body, writable: false });
+          Object.defineProperty(this, 'readyState', { value: 4, writable: false });
+          
+          if (this.onload) this.onload();
+          if (this.onreadystatechange) this.onreadystatechange();
+        })
+        .catch(() => {
+          return originalXHRSend.apply(this, args);
+        });
+      
+      return;
+    }
+    
+    return originalXHRSend.apply(this, args);
+  };
+})();
+</script><style>
+    .mc-modal, .mc-modal-bg, .mc-banner, #PopupSignupForm_0, [id^="PopupSignupForm"],
+    [class*="mc-modal"], [class*="mc-banner"], [class*="popup-overlay"] { 
+      display: none !important; 
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+  </style></head><body style="overflow: visible; zoom: 1;"><div data-w-id="d162ae7a-f1fa-352e-4672-062769f40e40" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-2 w-nav"><div class="a-banner-announcement"><div class="a-banner-container-small"><div class="a-banner-text-wrapper"><div class="a-banner-icon"></div></div><div class="a-banner-right-wrapper"><div data-hover="false" data-delay="0" class="w-dropdown"><div class="a-banner-toggle-copy w-dropdown-toggle" id="w-dropdown-toggle-0" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0"><div class="a-caption-copy">For Individuals</div></div><nav class="a-banner-list w-dropdown-list" id="w-dropdown-list-0" aria-labelledby="w-dropdown-toggle-0"></nav></div><div data-hover="false" data-delay="0" class="w-dropdown"><div class="a-banner-toggle w-dropdown-toggle" id="w-dropdown-toggle-1" aria-controls="w-dropdown-list-1" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0"><a href="../../partners/index.html" class="w-inline-block"><div class="a-caption">For Organizations</div></a></div><nav class="a-banner-list w-dropdown-list" id="w-dropdown-list-1" aria-labelledby="w-dropdown-toggle-1"></nav></div></div></div></div><div class="uui-navbar02_component-3"><div class="uui-navbar02_container-3"><a href="../../index/index.html" class="uui-navbar02_logo-link-3 w-nav-brand" aria-label="home"><div class="uui-logo_component-4"><img src="../../_assets/623d7d246e8213dbe6aace84_624447bdff22b73c4a02373f_Logo-horizontal-colour.svg.svg" loading="lazy" alt="FruitPunch AI logo" class="uui-logo_logotype-3"><img src="../../_assets/623d7d246e8213dbe6aace84_652797dd2601a8abb837b8f7_untitled-ui-logo.png.png" loading="lazy" alt="Logo" class="uui-logo_image-3"></div></a><nav role="navigation" class="uui-navbar02_menu-3 w-nav-menu"><div class="uui-navbar02_menu-left-3"><a href="https://app.fruitpunch.ai/challenges" class="uui-navbar02_link-3 w-nav-link">Challenges</a><div data-hover="true" data-delay="300" data-w-id="d162ae7a-f1fa-352e-4672-062769f40e58" class="uui-navbar02_menu-dropdown-3 w-dropdown"><div class="uui-navbar02_dropdown-toggle-3 w-dropdown-toggle" id="w-dropdown-toggle-2" aria-controls="w-dropdown-list-2" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0"><div class="uui-dropdown-icon-3 w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg></div><div class="text-block-12">About us </div></div><nav class="dropdown-list w-dropdown-list" id="w-dropdown-list-2" aria-labelledby="w-dropdown-toggle-2"><div class="nav_drop-down-links"><div class="mega-menu_link-items-wrapper"><a href="../../about/index.html" class="mega-menu_link-item" tabindex="0">Our Story</a><a href="../../faq/index.html" class="mega-menu_link-item" tabindex="0">FAQ</a><a href="../../contact/index.html" class="mega-menu_link-item" tabindex="0">Contact us</a></div><div class="dropdown_top-colour is-green"></div></div></nav></div><a href="../../publications/index.html" class="uui-navbar02_link-3 w-nav-link">Blog</a><a href="../../pricing/index.html" class="uui-navbar02_link-3 w-nav-link">Pricing</a></div><div class="uui-navbar02_menu-right-3"><div class="uui-navbar02_button-wrapper-3"><a href="#" class="uui-button-secondary-gray-3 show-tablet w-inline-block"><div>Log in</div></a><a href="https://app.fruitpunch.ai/account/login" class="uui-button-tertiary-gray-3 hide-tablet w-inline-block"><div class="text-block-16">Log in</div></a><a href="https://app.fruitpunch.ai/account/register" class="button outline w-inline-block"><div>Get Started</div></a></div></div></nav><div class="uui-navbar02_menu-button-3 w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false"><div class="menu-icon_component-3"><div class="menu-icon_line-top-3"></div><div class="menu-icon_line-middle-3"><div class="menu-icon_line-middle-inner-3"></div></div><div class="menu-icon_line-bottom-3"></div></div></div></div></div><a href="https://api.whatsapp.com/message/SO3LKMLLO5GZI1" target="_blank" class="whatsapp w-inline-block"><div class="list-icon-white margin w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" fill="currentColor"></path></svg></div><h1 class="icontext-copy">Chat with our AI Expert</h1></a><div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div></div><div class="global-elements"><div class="html w-embed"><style>
+/* Main Variables */
+:root {
+  --main-dark: #eb306e;
+  --main-light: #fffffe;
+}
+
+/* Global Styles */
+
+/* .body {
+  font-feature-settings: 'cv08' on, 'salt' on, 'ss02' on, 'cv05' on, 'cv01' on, 'cv06' on, 'cv10' on, 'cv11' on;
+}
+*/
+
+::selection {
+	background: var(--main-dark);
+  color: var(--main-light);
+  text-shadow: none;
+}
+img::selection, svg::selection {
+	background: transparent;
+}
+
+/* Disable / enable clicking on an element and its children  */
+.no-click {
+	pointer-events: none;
+}
+.can-click {
+	pointer-events: auto;
+}
+
+/* Container Max Width 
+.container {
+  max-width: 1280px;
+}
+*/
+/* Splide settings */
+.splide button:disabled {
+	opacity: 0.4;
+}
+
+.splide .splide__pagination { 
+	display: none;
+}
+
+
+/* Image overflow-none and animation fix for Safari */
+.blog-post_image-height {
+-webkit-backface-visibility: hidden;
+-moz-backface-visibility: hidden;
+-webkit-transform: translate3d(0, 0, 0);
+-moz-transform: translate3d(0, 0, 0)
+}
+
+.highlight {
+-webkit-backface-visibility: hidden;
+-moz-backface-visibility: hidden;
+-webkit-transform: translate3d(0, 0, 0);
+-moz-transform: translate3d(0, 0, 0)
+}
+
+.blog-youtube-video-embed {
+-webkit-backface-visibility: hidden;
+-moz-backface-visibility: hidden;
+-webkit-transform: translate3d(0, 0, 0);
+-moz-transform: translate3d(0, 0, 0)
+}
+
+</style></div></div><section class="section"><div class="container is-blog-header"><div class="blog-header"><div class="blog-header_info-wrapper"><div class="blog_published-date">September 6, 2022</div></div><div class="blog-header_content-wrapper"><h1>How we applied AI to prevent sepsis in preterm babies</h1><div class="blog-header_intro">A case study on using XGBoost for time series forecasting to predict the onset of sepsis in preterm infants within a 12-hour prediction horizon.</div></div><div class="blog-header_image-wrapper"><div class="blog-header_image-height"><img height="100" loading="lazy" alt="" src="../../_assets/62604c2173fafef5f182b55a_6641cf46dd58a961950cb268_header.png.png" class="blog-header_hero-img"></div></div></div></div></section><section class="section"><div class="container is-blog-body"><div class="blog-body_wrapper"><div class="blog-body_content"><div class="blog_rich-text w-richtext"><h2><strong>Improving the chances of preterm-born infants</strong></h2>
+
+<p>About 20% of the preterm-born infants admitted to the newborn intensive care unit (NICU) will develop sepsis which is related to a higher mortality and adverse long-term effects. In the <a href="../../challenges/ai-for-health-preventing-sepsis/index.html">AI for Health - Sepsis Prevention project</a> we applied machine learning to accurately predict whether a preterm baby is going to develop sepsis. Sepsis is a reaction to an infection and can be life-threatening. Early prediction of the onset gives doctors the necessary time to apply preventative measures.&nbsp;</p>
+
+<h2><strong>Healthcare professionals meet data scientists</strong></h2>
+
+<p>Our team of 4 data scientists worked for 20 weeks to address the problem. We worked in a very close collaboration with the hospital. Intensive care is an extremely sensitive topic in medicine and we had to establish good basic comprehension of the application area. Since we were all located in the Netherlands, we even got a chance to visit the premises of the NICU in person for some hands-on experience.&nbsp;&nbsp;
+</p><figure id="" class="w-richtext-figure-type-image w-richtext-align-fullwidth" style="max-width:1075px" data-rt-type="image" data-rt-align="fullwidth" data-rt-max-width="1075px"><div id=""><img src="https://cdn.prod.website-files.com/62604c2173fafef5f182b55a/63171fb1272c261d98ba3bd8_9gbmWZx8VGDcEyPV04bD6Fc_qCC8h0IUnxpmQI5we18LcljlDlNxSQlWPcLHeXJlFXJeFL1DXd6jtN1bGJZI8VsRsExP01jW0ex9AFEPDpwMYZadAJBNJLdanjxOHBAiX0L_3ONi88IUVZWwnxXFgQXLn4xT_vlEmnCAiAK1WtiplPbOOnNUYTBeskC2HO3SZLnscg.jpeg" id="" width="100%" height="auto" loading="auto"></div><figcaption id="">AI for Health engineers at the NICU of UMC Utrecht</figcaption></figure>
+We decided to split the team and work on two solutions. One was trying to improve the existing logistic regression model that <a href="https://www.umcutrecht.nl/en">UMC Utrecht</a> developed. The other one was to create a new XGboost model that would outperform the improved existing model.&nbsp;<p></p>
+
+<h2><strong>Existing logistic regression model got an upgrade</strong></h2>
+
+<p>We started with improving the already existing logistic regression model UMC Utrecht used. We applied two methods:&nbsp;</p>
+
+<ol>
+<li>hyperparameter optimization and</li>
+<li>feature engineering</li>
+</ol>
+
+<p>For the hyperparameter optimization we used random search and grid search with cross validation. We did this on the original set of features on only a portion of the patients due to computational limitations . We still managed to improve the ROC/ AUC score from 0.56 to 0.67.</p>
+
+<p>The goal of the second approach was to create new features based on the minimum, mean, variance, peaks, and drops of those original features which have a low number of null values. We computed their feature importance by using a simple regression model and gradient boosting model to measure each feature’s influence on the outcome of the model.</p>
+
+<p>We computed a correlation matrix, which gave us the opportunity to manually explore possible feature combinations for our logistic regression model. Finally, we used a sequential feature selector to find the best 5 to 8 features for our model.&nbsp; We found that the best combination of features was:&nbsp;</p>
+
+<ul>
+<li>HF mean (2h) - heart frequency mean over a 2 hour interval;</li>
+<li>SpO2 drops (2h) - how many oxygen saturation drops occur in a 2 hour interval;</li>
+<li>HF variance (2h) - heart frequency variance over a 2 hour interval;</li>
+<li>Bradycardia (2h) - how often a too slow heart rate occurs in a 2 hour interval;</li>
+<li>AdemF mean - &nbsp;breathing frequency.</li>
+</ul>
+
+<p>Despite improving the ROC/ AUC score from 0.56 to 0.67 we still operated at a near&nbsp; chance level. <strong>The change had to be more fundamental for a usable outcome. We had to reformulate the problem.</strong>&nbsp; We’ve realized quite early that:</p>
+
+<ul>
+<li>The logistic regression model didn’t cater to the problem - it just flagged an off-the-chart value (or combination of values) when something was already happening. This might not give the medical staff the convenient time window that would ideally be sought after, to maximize the probability of a successful intervention.</li>
+<li>We would have to move away from the real-time analysis of a data stream&nbsp; approach to predicting future events from chunks historical of data. A classic time series forecasting problem!</li>
+</ul>
+
+<p>‍</p>
+
+<blockquote>
+  <p><em>“We needed a model to predict which patient will develop sepsis within the next 12 hours. A traffic police officer that doesn’t just direct &amp; flag real-time data traffic, but one that knows on which intersection important stuff will happen. Show me what traffic crosses the intersection right now and&nbsp; I’ll tell you what happens in the next 12 hours of time - that’s the goal. ”</em> - <em>*Kamal Elsayed, AI for Health engineer&nbsp;*</em></p>
+</blockquote>
+
+<p>‍</p>
+
+<h2><em>*Developing a new XGBoost time series forecasting model&nbsp;*</em></h2>
+
+<p>The goal here was to create an XGBoost time series forecasting classification model that <strong>predicts the onset of sepsis in preterm infants within a 12-hour prediction horizon</strong>.&nbsp;</p>
+
+<p>The model was trained on these features:&nbsp;</p>
+
+<ol>
+<li>arterial blood pressure</li>
+<li>diastole arterial blood</li>
+<li>pressure systole</li>
+<li>incubator measured temperature</li>
+<li>monitor temperature</li>
+<li>heart rate pulse</li>
+<li>heart rate pleth</li>
+<li>monitor heart rate</li>
+<li>respiratory rate</li>
+<li>O2 saturation</li>
+<li>gestation age</li>
+<li>gender</li>
+</ol>
+
+<h3><strong>Data Pre-processing</strong></h3>
+
+<p>The aforementioned features are minute-by-minute time-series data streams which were recorded from a set of invasive and non-invasive medical instruments in the incubator. Each feature data stream could extend to multiple days. An event feature shows per timestamp if a notable medical intervention or an administrative event occurred. Notable events include: admission, discharge, death, negative or positive blood cultures. A positive blood culture confirms a positive sepsis case, and the corresponding timestamp is marked as sepsis onset (t_sepsis).</p>
+
+<p>For every patient, each of the 10 physiological markers was subset to the 12 hours of data that directly preceded a sepsis timestamp in a case patient, or control timestamp in a control patient. Number of positive patients equaled the number of negative. In order to maintain a balanced dataset, 398 control patients were pseudo randomly drawn from the 2196 control pool. The selection was constrained to match the distribution of the gestation age.&nbsp;&nbsp;&nbsp;</p>
+
+<p>Over this extracted 12 hours segment, a sliding window of length 3 hours was run on every physio-marker to aggregate a set of 8 statistical features. This created a total of 320 training features per patient (10 physiological x 8 statistical x 4 Intervals (3hrs)). Additionally, we added the gestation age and gender as features.</p>
+
+<p>The targets used in model training were derived from the event feature. A 12 hours segment from a patient was assigned the positive class if it directly preceded a sepsis timestamp. If no sepsis event followed, the segment was assigned the negative class.</p>
+
+<h3><em>*Model Validation&nbsp;*</em></h3>
+
+<p>This model was trained and evaluated using a <em>*repeated nested cross-validation procedure *</em>to simultaneously search for the optimal parameters and evaluate the test scores. Both the inner and outer cross-validation loops used k = 4 and each loop was repeated 10 times. The inner loop used a random search over a set of probability distributions.&nbsp;</p>
+
+<p>The model reached an average precision of .90 on the test set as seen in the graph below. This shows promise for actual implementation of the model. Further testing on new unseen data should prove generalizability and clinical feasibility.&nbsp;
+</p><figure id="" class="w-richtext-figure-type-image w-richtext-align-fullwidth" style="max-width:870px" data-rt-type="image" data-rt-align="fullwidth" data-rt-max-width="870px"><div id=""><img src="https://cdn.prod.website-files.com/62604c2173fafef5f182b55a/63171fb196182bca904defcd_o_59_UfKdXwPVjpQTzwelJOkbOlZU1caaKxhZoamvbsjsP6jvAPnypOGLQHds2XRJA68tCke8qRtJtruTuMMU7Bb9IgrFB6drymqhRJhjmlXCV8h0Y-hMXDN2X1P1QFuvPX3nox00XWbiLEQG57kmngOWc51OLrrUaY0R6r2nK8KwTwo1uGoG4xBWt3EIOv1VThsFQ.jpeg" id="" width="100%" height="auto" loading="auto"></div><figcaption id="">Results of cross-validation</figcaption></figure><p></p>
+
+<h2><strong>Explainable AI in action</strong></h2>
+
+<p>We developed a prediction interpretability analysis of the XGBoost model using SHAP. <em>*SHAP *</em>is a novel model agnostic technique that is used to explain predictions and model the decision process using so-called Shapley’s values.&nbsp;
+</p><figure id="" class="w-richtext-figure-type-image w-richtext-align-fullwidth" style="max-width:785px" data-rt-type="image" data-rt-align="fullwidth" data-rt-max-width="785px"><div id=""><img src="../../_assets/62604c2173fafef5f182b55a_63171fb19c1edd9706bb0e7e_MJKKxSOwlkvjRtzkERZ7p2W9nYEgtyggDfev4iHmYRuyjy8ocHOlVXuevlhVAnLlcdjaSAt5x5hHWfChMrQZWA97PaI4Q3mMKH-FdRnBPt7ubwV9R01UFDUmo31ZRF0sjw2GYNn6XSlItz2v3Mc-8Fi001H5VqJxQWhspv1NWDzhf7Dxgxu1gz7eQp2Z.png.png" id="" width="100%" height="auto" loading="auto"></div><figcaption id="">Top 6 features, averaged absolute SHAP&nbsp;</figcaption></figure><figure id="" class="w-richtext-figure-type-image w-richtext-align-fullwidth" style="max-width:697px" data-rt-type="image" data-rt-align="fullwidth" data-rt-max-width="697px"><div id=""><img src="../../_assets/62604c2173fafef5f182b55a_63171fb2029544001478ed68_rdO7kNHf5h7117jkG9z0QHULw5asHwZsBk2iX1SIAIVfuTEkWa2Eh47mBxUZzoD0obauLf2f2k0OstWsB0ag9QBOSAZLEBIrcS9Vgtu0_8XEjzPxu1F2JFKXFOO11CyeZRJomCJWuEBbLkVVHsoOOEPxFs33Ox4cIG7QDwV0Td5S-XPQv6D89ER-EHnR.png.png" id="" width="100%" height="auto" loading="auto"></div><figcaption id="">Top 6 features, SHAP of individual predictions</figcaption></figure>
+The most important findings from this model were:<p></p>
+
+<ol>
+<li>Minimal incubator measured temperature (int. 3) had highest average absolute SHAP values.</li>
+<li>Both mean and median heart frequency had high impact in the 20 most impactful features.</li>
+<li>Most prominent features without consideration of filters were then incubator measured temperature, arterial blood pressure systole and heart frequency.</li>
+<li>Unlike in the original logistic regression model, in our XGBoost model O2 saturation was significantly less dominant. It wasn’t present in the top 10 features.</li>
+</ol>
+
+<p>‍</p>
+
+<p>Due to a different pre-processing of the dataset we couldn’t compare the performance of the 2 models and the influence of measured features one-to-one. The XGboost superiority lies in its prediction capability - it gives the hospital enough advance time to pay attention to specific patients. Our suggestion to the hospital team was to further validate the model accuracy on patient data in clinical practice.&nbsp;&nbsp;</p>
+
+<p>‍</p>
+
+<h2><strong>Missing data held back more advanced techniques</strong></h2>
+
+<p>Our team tried to include a more advanced filtering technique - the fast Fourier transform, to build new features from the heart rate variable. But this technique proved to be difficult to implement due to a high number of missing data. Dealing with the missing data and working in a virtual environment with limited memory proved to be the biggest hurdles throughout the Challenge.&nbsp;</p>
+
+<p>We know that it’s extremely difficult to do measurements on preterm babies consistently but it would be of great benefit. Measuring patient data without interruption would ensure a low number of missing values for crucial features like heart rate or O2 saturation; improving the prediction models immensely.&nbsp;&nbsp;</p>
+
+<p>‍</p>
+
+<h2><em>*What I learnt about applying ML in real life (and about the need for Explainable AI)&nbsp;*</em></h2>
+
+<p>What surprised me the most in this Challenge, was really how many factors come into play when you design a machine learning solution for a particular purpose. It is not just about which algorithm performs the best. In this case it was very important that the outcome of the algorithm was explainable. Doctors have to make medical decisions based on these outputs and therefore can’t just trust it blindly.</p>
+
+<p>UMC Utrecht considered our results a success and is already planning similar initiatives to deploy AI for clinical purposes. Both sides learned a lot from each other; our team of data scientists got seasoned in medical AI and the hospital got valuable machine learning models as well as a blueprint for similar projects.&nbsp;
+</p><figure id="" class="w-richtext-figure-type-image w-richtext-align-fullwidth" style="max-width:1113px" data-rt-type="image" data-rt-align="fullwidth" data-rt-max-width="1113px"><div id=""><img src="https://cdn.prod.website-files.com/62604c2173fafef5f182b55a/63171fb14a93bea5e54eb2fd_u7dQ3KstuDiGI7AYXxUpyqfNT3pBorhkqevU9nHNx7xtmwodeqcxXeiLPxqEENepziTmuAwYWf_nrE_q453VIxIWVl9fuHoMv9v5NqAE1J9ZCjyz2IC-kVTBWAPdGWYJsPI3Cuuh0AYscGm2NVyWktFjyA5gaQ47H-hv2JROTHqWQOmxWPQoq6ltWmK_kmbdoL9Lpw.jpeg" id="" width="100%" height="auto" loading="auto"></div><figcaption id="">AI for Health - Preventing Sepsis team of engineers</figcaption></figure>
+I’d love to give a shout out to the entire AI against Sepsis team. We did good and learned on the way. By improving the existing and creating a new model, we hope that more preterm babies’ sepsis can be signaled early on. When the babies receive their treatment earlier, severe consequences will be prevented and this might even save some lives.<p></p>
+
+<p>‍</p>
+
+<p><strong>Laura Didden</strong></p>
+
+<p>AI for Health Engineer&nbsp;</p>
+
+<p>*AI for Health - Predicting Sepsis Team: *Kamal Elsayed, Simon Sukup, Simona Stoyanova, Laura Didden</p>
+</div><div class="w-dyn-list"><div role="list" class="collection-list w-dyn-items"><div role="listitem" class="collection-item w-dyn-item"><div class="tag">AI for Health</div></div><div role="listitem" class="collection-item w-dyn-item"><div class="tag">Time Series Forecasting</div></div><div role="listitem" class="collection-item w-dyn-item"><div class="tag">Explainable AI</div></div><div role="listitem" class="collection-item w-dyn-item"><div class="tag">Challenge results</div></div></div></div></div><div class="blog-body_social"><div class="blog_right-col-sticky-wrapper"><div class="video-2 w-dyn-bind-empty w-video w-embed"></div><div class="blog-body_social-wrapper"><div class="blog-body_social-content"><div class="blog-social_icon-wrapper"><div class="blog_social-heading">Subscribe to our newsletter</div><div class="icon-embed _32x32 w-embed"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="16" cy="16" r="16" fill="#FDEAF1"></circle>
+<path d="M21 25.25H11C10.59 25.25 10.25 24.91 10.25 24.5C10.25 24.09 10.59 23.75 11 23.75H21C23.86 23.75 25.25 22.36 25.25 19.5V12.5C25.25 9.64 23.86 8.25 21 8.25H11C8.14 8.25 6.75 9.64 6.75 12.5C6.75 12.91 6.41 13.25 6 13.25C5.59 13.25 5.25 12.91 5.25 12.5C5.25 8.85 7.35 6.75 11 6.75H21C24.65 6.75 26.75 8.85 26.75 12.5V19.5C26.75 23.15 24.65 25.25 21 25.25Z" fill="#EB306E"></path>
+<path d="M15.9998 16.87C15.1598 16.87 14.3098 16.61 13.6598 16.08L10.5298 13.58C10.2098 13.32 10.1498 12.85 10.4098 12.53C10.6698 12.21 11.1398 12.15 11.4598 12.41L14.5898 14.91C15.3498 15.52 16.6398 15.52 17.3998 14.91L20.5298 12.41C20.8498 12.15 21.3298 12.2 21.5798 12.53C21.8398 12.85 21.7898 13.33 21.4598 13.58L18.3298 16.08C17.6898 16.61 16.8398 16.87 15.9998 16.87Z" fill="#EB306E"></path>
+<path d="M12 21.25H6C5.59 21.25 5.25 20.91 5.25 20.5C5.25 20.09 5.59 19.75 6 19.75H12C12.41 19.75 12.75 20.09 12.75 20.5C12.75 20.91 12.41 21.25 12 21.25Z" fill="#EB306E"></path>
+<path d="M9 17.25H6C5.59 17.25 5.25 16.91 5.25 16.5C5.25 16.09 5.59 15.75 6 15.75H9C9.41 15.75 9.75 16.09 9.75 16.5C9.75 16.91 9.41 17.25 9 17.25Z" fill="#EB306E"></path>
+</svg></div><p class="paragraph">Be the first to know when a new AI for Good challenge is launched. Keep up do date with the latest AI&nbsp;for Good news. </p></div></div><div class="blog-body_newsletter-wrapper"><div id="newsletter-form" data-w-id="f0d3febe-68b2-c3a3-e159-9a6fdebd0168" class="blog_newsletter-form-wrapper w-form"><form id="wf-form-EMAIL" name="wf-form-EMAIL" data-name="EMAIL" action="https://fruitpunch.us20.list-manage.com/subscribe/post?u=274b78179f279b8ff0a6f8164&amp;amp;id=b25b3d594e" method="post" class="blog_newsletter-form" data-wf-page-id="661d09a4061bc8f0cc423c89" data-wf-element-id="f0d3febe-68b2-c3a3-e159-9a6fdebd0169" aria-label="EMAIL"><div class="blog_newsletter-input-wrapper"><div class="w-embed w-script"><div id="mc_embed_shell">
+      <link href="" rel="stylesheet" type="text/css">
+  <style type="text/css">
+        #mc_embed_signup{background:#f7f8f8; false;clear:left; font:1em; font-weight:600; Inter, sans-serif; width: 100%;}
+        /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+           We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+    
+        <div id="mc_embed_signup_scroll">
+            <div class="indicates-required" style="color:#000000;float:right;font-weight:300"><span class="asterisk">*</span> indicates required</div>
+            <div class="mc-field-group"><label for="mce-EMAIL" style="color:#000000;margin-bottom:5px;display:block">Email Address <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="input-field w-input required email" id="mce-EMAIL" required="" value=""></div>
+        <div id="mce-responses" class="clear" style="color:#000000;font-weight:300;font-style:italic">
+            <div class="response" id="mce-error-response" style="display: none;"></div>
+            <div class="response" id="mce-success-response" style="display: none;"></div>
+        </div><div aria-hidden="true" style="position: absolute; left: -5000px;"><input type="text" name="b_274b78179f279b8ff0a6f8164_b25b3d594e" tabindex="-1" value=""></div><div class="clear"><input type="submit" name="subscribe" id="mc-embedded-subscribe" style="margin-top:5px" class="button outline" value="Subscribe"></div>
+    </div>
+
+</div>
+<!-- Tracking script removed for offline --><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='MMERGE1';ftypes[1]='phone';fnames[2]='MMERGE2';ftypes[2]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script></div></div></div></form><div class="success-message w-form-done" tabindex="-1" role="region" aria-label="EMAIL success"><div class="success-message_heading">Thank you!</div><p class="success-message_sub-heading">We’ve just sent you a confirmation email.</p><p class="success-message_p">We know, this can be annoying, but we want to make sure we don’t spam anyone. Please, check out your inbox and confirm the link in the email.<br><br>Once confirmed, you’ll be ready to go!</p></div><div class="error-message w-form-fail" tabindex="-1" role="region" aria-label="EMAIL failure"><div class="error-message-p">Oops! Something went wrong while submitting the form.</div></div></div></div></div><div class="blog_next-item-wrapper"></div></div></div></div></div></section><script src="../../_assets/js_signup-forms_popup_unique-methods_embed.js.js" type="text/javascript"></script><section class="section related"><div class="container is-sm-padding is-btm related"><h3>You may also like</h3><div class="w-dyn-list"><div role="list" class="w-dyn-items w-row"><div role="listitem" class="w-dyn-item w-col w-col-6"><a data-w-id="273a5006-de60-6f4f-9030-607401257248" href="../prioritizing-essential-care-with-ai/index.html" class="blog_post-card w-inline-block"><div class="blog-post_image-wrapper"><div class="blog-post_image-height"><img height="100" loading="lazy" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" src="../../_assets/62604c2173fafef5f182b55a_6798efc44097af4454e6f6f8_header.jpeg.jpeg" alt="" class="blog-post_img" data-clarity-loaded="yxvla5"></div></div><div class="blog-post_content-wrapper"><div class="blog-post_date">January 28, 2025</div><h3>Prioritizing Essential Care with AI</h3><p class="blog-page_post-p">Advancing Neonatal Care: The Role of IMPALA and AI in Improving Early Diagnosis and Treatment</p><address fs-cmsnest-collection="categories"></address></div></a></div><div role="listitem" class="w-dyn-item w-col w-col-6"><a data-w-id="273a5006-de60-6f4f-9030-607401257248" href="../the-bear-necessity-of-ai-in-conservation/index.html" class="blog_post-card w-inline-block"><div class="blog-post_image-wrapper"><div class="blog-post_image-height"><img height="100" loading="lazy" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" src="../../_assets/62604c2173fafef5f182b55a_6643611db64f259e60a5aaca_header.jpeg.jpeg" alt="" class="blog-post_img" data-clarity-loaded="18em9bu"></div></div><div class="blog-post_content-wrapper"><div class="blog-post_date">May 14, 2024</div><h3>The Bear Necessity of AI in Conservation</h3><p class="blog-page_post-p">The AI for Bears Challenge results which aims to improve the monitoring and identification of bears using advanced computer vision techniques.</p><address fs-cmsnest-collection="categories"></address></div></a></div></div></div></div></section><div class="global-elements"><div class="html w-embed"><style>
+/* Main Variables */
+:root {
+  --main-dark: #eb306e;
+  --main-light: #fffffe;
+}
+
+/* Global Styles */
+
+/* .body {
+  font-feature-settings: 'cv08' on, 'salt' on, 'ss02' on, 'cv05' on, 'cv01' on, 'cv06' on, 'cv10' on, 'cv11' on;
+}
+*/
+
+::selection {
+	background: var(--main-dark);
+  color: var(--main-light);
+  text-shadow: none;
+}
+img::selection, svg::selection {
+	background: transparent;
+}
+
+/* Disable / enable clicking on an element and its children  */
+.no-click {
+	pointer-events: none;
+}
+.can-click {
+	pointer-events: auto;
+}
+
+/* Container Max Width 
+.container {
+  max-width: 1280px;
+}
+*/
+/* Splide settings */
+.splide button:disabled {
+	opacity: 0.4;
+}
+
+.splide .splide__pagination { 
+	display: none;
+}
+
+
+/* Image overflow-none and animation fix for Safari */
+.blog-post_image-height {
+-webkit-backface-visibility: hidden;
+-moz-backface-visibility: hidden;
+-webkit-transform: translate3d(0, 0, 0);
+-moz-transform: translate3d(0, 0, 0)
+}
+
+.highlight {
+-webkit-backface-visibility: hidden;
+-moz-backface-visibility: hidden;
+-webkit-transform: translate3d(0, 0, 0);
+-moz-transform: translate3d(0, 0, 0)
+}
+
+.blog-youtube-video-embed {
+-webkit-backface-visibility: hidden;
+-moz-backface-visibility: hidden;
+-webkit-transform: translate3d(0, 0, 0);
+-moz-transform: translate3d(0, 0, 0)
+}
+
+</style></div></div><footer class="uui-footer03_component-2"><div class="uui-page-padding-5"><div class="uui-container-large-7"><div class="uui-padding-vertical-xlarge-2"><div class="w-layout-grid uui-footer03_top-wrapper-2"><div class="uui-footer03_left-wrapper-2"><a href="#" class="uui-footer03_logo-link-2 w-nav-brand"><div class="uui-logo_component-5"><img src="../../_assets/623d7d246e8213dbe6aace84_624fffdc005e2601af3e69d2_Fp-logo-white.svg.svg" loading="lazy" alt="Untitled UI logotext" class="uui-logo_logotype-4" data-clarity-loaded="1uc553a"><img src="../../_assets/623d7d246e8213dbe6aace84_652797dd2601a8abb837b8f7_untitled-ui-logo.png.png" loading="lazy" alt="Logo" class="uui-logo_image-4"></div></a><div class="uui-footer03_details-wrapper-2"><div class="uui-text-size-medium-4">Train your AI skills and achieve your learning goals by solving real-world Challenges mentored by experts.</div></div><a href="https://app.fruitpunch.ai/account/register" class="button w-button">Start making impact</a><div class="w-layout-grid uui-footer03_social-list-2"><a href="https://www.facebook.com/FruitPunchAI/" target="_blank" class="uui-footer03_social-link-2 w-inline-block"><div class="social-icon-3 w-embed"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 17.9895 4.3882 22.954 10.125 23.8542V15.4688H7.07812V12H10.125V9.35625C10.125 6.34875 11.9166 4.6875 14.6576 4.6875C15.9701 4.6875 17.3438 4.92188 17.3438 4.92188V7.875H15.8306C14.34 7.875 13.875 8.80008 13.875 9.75V12H17.2031L16.6711 15.4688H13.875V23.8542C19.6118 22.954 24 17.9895 24 12Z" fill="currentColor"></path>
+</svg></div></a><a href="https://www.instagram.com/fruitpunchai/" target="_blank" class="uui-footer03_social-link-2 w-inline-block"><div class="social-icon-3 w-embed"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2.16094C15.2063 2.16094 15.5859 2.175 16.8469 2.23125C18.0188 2.28281 18.6516 2.47969 19.0734 2.64375C19.6313 2.85938 20.0344 3.12188 20.4516 3.53906C20.8734 3.96094 21.1313 4.35938 21.3469 4.91719C21.5109 5.33906 21.7078 5.97656 21.7594 7.14375C21.8156 8.40937 21.8297 8.78906 21.8297 11.9906C21.8297 15.1969 21.8156 15.5766 21.7594 16.8375C21.7078 18.0094 21.5109 18.6422 21.3469 19.0641C21.1313 19.6219 20.8688 20.025 20.4516 20.4422C20.0297 20.8641 19.6313 21.1219 19.0734 21.3375C18.6516 21.5016 18.0141 21.6984 16.8469 21.75C15.5813 21.8063 15.2016 21.8203 12 21.8203C8.79375 21.8203 8.41406 21.8063 7.15313 21.75C5.98125 21.6984 5.34844 21.5016 4.92656 21.3375C4.36875 21.1219 3.96563 20.8594 3.54844 20.4422C3.12656 20.0203 2.86875 19.6219 2.65313 19.0641C2.48906 18.6422 2.29219 18.0047 2.24063 16.8375C2.18438 15.5719 2.17031 15.1922 2.17031 11.9906C2.17031 8.78438 2.18438 8.40469 2.24063 7.14375C2.29219 5.97187 2.48906 5.33906 2.65313 4.91719C2.86875 4.35938 3.13125 3.95625 3.54844 3.53906C3.97031 3.11719 4.36875 2.85938 4.92656 2.64375C5.34844 2.47969 5.98594 2.28281 7.15313 2.23125C8.41406 2.175 8.79375 2.16094 12 2.16094ZM12 0C8.74219 0 8.33438 0.0140625 7.05469 0.0703125C5.77969 0.126563 4.90313 0.332812 4.14375 0.628125C3.35156 0.9375 2.68125 1.34531 2.01563 2.01562C1.34531 2.68125 0.9375 3.35156 0.628125 4.13906C0.332812 4.90313 0.126563 5.775 0.0703125 7.05C0.0140625 8.33437 0 8.74219 0 12C0 15.2578 0.0140625 15.6656 0.0703125 16.9453C0.126563 18.2203 0.332812 19.0969 0.628125 19.8563C0.9375 20.6484 1.34531 21.3188 2.01563 21.9844C2.68125 22.65 3.35156 23.0625 4.13906 23.3672C4.90313 23.6625 5.775 23.8687 7.05 23.925C8.32969 23.9812 8.7375 23.9953 11.9953 23.9953C15.2531 23.9953 15.6609 23.9812 16.9406 23.925C18.2156 23.8687 19.0922 23.6625 19.8516 23.3672C20.6391 23.0625 21.3094 22.65 21.975 21.9844C22.6406 21.3188 23.0531 20.6484 23.3578 19.8609C23.6531 19.0969 23.8594 18.225 23.9156 16.95C23.9719 15.6703 23.9859 15.2625 23.9859 12.0047C23.9859 8.74688 23.9719 8.33906 23.9156 7.05938C23.8594 5.78438 23.6531 4.90781 23.3578 4.14844C23.0625 3.35156 22.6547 2.68125 21.9844 2.01562C21.3188 1.35 20.6484 0.9375 19.8609 0.632812C19.0969 0.3375 18.225 0.13125 16.95 0.075C15.6656 0.0140625 15.2578 0 12 0Z" fill="currentColor"></path>
+<path d="M12 5.83594C8.59688 5.83594 5.83594 8.59688 5.83594 12C5.83594 15.4031 8.59688 18.1641 12 18.1641C15.4031 18.1641 18.1641 15.4031 18.1641 12C18.1641 8.59688 15.4031 5.83594 12 5.83594ZM12 15.9984C9.79219 15.9984 8.00156 14.2078 8.00156 12C8.00156 9.79219 9.79219 8.00156 12 8.00156C14.2078 8.00156 15.9984 9.79219 15.9984 12C15.9984 14.2078 14.2078 15.9984 12 15.9984Z" fill="currentColor"></path>
+<path d="M19.8469 5.59214C19.8469 6.38902 19.2 7.0312 18.4078 7.0312C17.6109 7.0312 16.9688 6.38433 16.9688 5.59214C16.9688 4.79526 17.6156 4.15308 18.4078 4.15308C19.2 4.15308 19.8469 4.79995 19.8469 5.59214Z" fill="currentColor"></path>
+</svg></div></a><a href="https://twitter.com/fruitpunchai?s=20&amp;t=r8C8DvQEjIrOl24_F6r5FQ" target="_blank" class="uui-footer03_social-link-2 w-inline-block"><div class="social-icon-3 w-embed"><!--?xml version="1.0" encoding="UTF-8"?-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" class="r-13v1u17 r-4qtqp9 r-yyyyoo r-16y2uox r-8kz0gk r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-lrsllp"><g><path d="M14.258 10.152L23.176 0h-2.113l-7.747 8.813L7.133 0H0l9.352 13.328L0 23.973h2.113l8.176-9.309 6.531 9.309h7.133zm-2.895 3.293l-.949-1.328L2.875 1.56h3.246l6.086 8.523.945 1.328 7.91 11.078h-3.246zm0 0" fill="CurrentColor"></path></g></svg></div></a><a href="https://www.linkedin.com/company/fruitpunchai/" class="uui-footer03_social-link-2 w-inline-block"><div class="social-icon-3 w-embed"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.2234 0H1.77187C0.792187 0 0 0.773438 0 1.72969V22.2656C0 23.2219 0.792187 24 1.77187 24H22.2234C23.2031 24 24 23.2219 24 22.2703V1.72969C24 0.773438 23.2031 0 22.2234 0ZM7.12031 20.4516H3.55781V8.99531H7.12031V20.4516ZM5.33906 7.43438C4.19531 7.43438 3.27188 6.51094 3.27188 5.37187C3.27188 4.23281 4.19531 3.30937 5.33906 3.30937C6.47813 3.30937 7.40156 4.23281 7.40156 5.37187C7.40156 6.50625 6.47813 7.43438 5.33906 7.43438ZM20.4516 20.4516H16.8937V14.8828C16.8937 13.5562 16.8703 11.8453 15.0422 11.8453C13.1906 11.8453 12.9094 13.2937 12.9094 14.7891V20.4516H9.35625V8.99531H12.7687V10.5609H12.8156C13.2891 9.66094 14.4516 8.70938 16.1813 8.70938C19.7859 8.70938 20.4516 11.0813 20.4516 14.1656V20.4516Z" fill="currentColor"></path>
+</svg></div></a></div></div><div id="w-node-_3c7e8777-b0d9-0932-e324-81bb1cd3af93-1cd3af7b" class="w-layout-grid uui-footer03_menu-wrapper-2"><div class="uui-footer03_link-list-2"><a href="https://app.fruitpunch.ai/challenges" class="uui-footer03_link-2 w-inline-block"><div class="text-block-13">Challenges</div></a><a href="../../about/index.html" class="uui-footer03_link-2 w-inline-block"><div class="text-block-14">About us</div></a><a href="../../faq/index.html" class="uui-footer03_link-2 text-block-14 w-inline-block"><div>FAQ</div><div class="uui-badge-small-success-4"><div>New</div></div></a><a href="../../contact/index.html" class="uui-footer03_link-2 w-inline-block"><div>Contact us</div></a><a href="../../publications/index.html" class="uui-footer03_link-2 w-inline-block"><div>Blog</div></a><a href="../../pricing/index.html" class="uui-footer03_link-2 w-inline-block"><div>Pricing</div></a></div><div class="uui-footer03_link-list-2"><a href="#" class="uui-footer03_link-2-copy w-inline-block"><div>Our Labs</div></a><a href="../../labs/ai-for-wildlife-lab/index.html" class="uui-footer03_link-2 w-inline-block"><div>AI for Wildlife Lab</div></a><a href="../../labs/ai-for-earth-lab/index.html" class="uui-footer03_link-2 w-inline-block"><div>AI for Earth Lab</div></a><a href="../../labs/ai-for-health-lab/index.html" class="uui-footer03_link-2 w-inline-block"><div>AI for Health Lab</div></a><a href="#" class="uui-footer03_link-2 w-inline-block"></a><a href="#" class="uui-footer03_link-2 w-inline-block"></a><a href="#" class="uui-footer03_link-2 w-inline-block"></a></div></div></div><div class="uui-footer03_bottom-wrapper-2"><div class="uui-text-size-small-4 text-color-gray500">Copyright © 2023 FruitPunch AI B.V. All rights reserved.</div><div class="w-layout-grid uui-footer03_legal-list-2"><a href="../../terms-of-use/index.html" class="uui-footer03_legal-link-2">Terms of Use</a><a href="../../legal-privacy/index.html" class="uui-footer03_legal-link-2">Privacy Policy</a><a href="#" class="uui-footer03_legal-link-2">Cookies</a></div></div></div></div></div></footer><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=623d7d246e8213dbe6aace84" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="../../_assets/623d7d246e8213dbe6aace84_js_webflow.schunk.b7cad701f94860c2.js.js" type="text/javascript"></script><script src="../../_assets/623d7d246e8213dbe6aace84_js_webflow.schunk.bb3b2bf26788d119.js.js" type="text/javascript"></script><script src="../../_assets/623d7d246e8213dbe6aace84_js_webflow.9d5bcaf8.33261154d2049663.js.js" type="text/javascript"></script><!--Tooltip Scripts & Settings-->
+<script src="../../_assets/popper.js_1.js@1"></script>
+<script src="../../_assets/tippy.js_4.js@4"></script>
+<script>
+tippy('.tooltip', {        
+ animation: 'fade',    
+ duration: 200,      
+ arrow: true,          
+ delay: [0, 50],      
+ arrowType: 'sharp',  
+ theme: 'light-border',        
+ maxWidth: 220,    
+ interactive: true,
+})
+</script>
+<!-- Tracking script removed for offline --><script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<!-- LinkedIn tracking pixel removed --></body></html>

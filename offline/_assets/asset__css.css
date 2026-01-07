@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 400;
+  src: url("asset__s_atkinsonhyperlegible_v12_9Bt23C1KxNDXMspQ1lPyU8.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 700;
+  src: url("asset__s_atkinsonhyperlegible_v12_9Bt73C1KxNDXMspQ1lPyU8.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  src: url("asset__s_inter_v20_UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKo.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  src: url("asset__s_inter_v20_UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKo.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  src: url("asset__s_inter_v20_UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKo.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url("asset__s_inter_v20_UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKo.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url("asset__s_inter_v20_UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKo.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url("asset__s_inter_v20_UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKo.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url("asset__s_inter_v20_UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKo.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  src: url("asset__s_inter_v20_UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKo.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  src: url("asset__s_inter_v20_UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKo.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url("asset__s_robotomono_v31_L0xuDF4xlVMF_BfR8bXMIhJHg45mwgGE.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 600;
+  src: url("asset__s_robotomono_v31_L0xuDF4xlVMF_BfR8bXMIhJHg45mwgGE.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: url("asset__s_robotomono_v31_L0xuDF4xlVMF_BfR8bXMIhJHg45mwgGE.ttf") format('truetype');
+}

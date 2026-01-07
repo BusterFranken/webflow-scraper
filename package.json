@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "fast-xml-parser": "^5.3.3",
+    "node-fetch": "^3.3.2",
+    "p-limit": "^7.2.0",
+    "playwright": "^1.57.0"
+  }
+}
